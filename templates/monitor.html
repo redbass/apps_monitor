@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <script src="static/js/jquery-2.2.4.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div>
+
+                <h1>Application  monitor</h1>
+
+
+
+                <table class="table">
+                    <tr>
+                        <th>App name</th>
+                        <th>URL</th>
+                        <th>Status</th>
+                    </tr>
+
+                    {% for app in apps %}
+                    <tr id="{{app.id}}">
+                        <td class="app-name">{{app.name}}</td>
+                        <td class="url">{{app.url}}</td>
+                        <td class="status"></td>
+                    </tr>
+                    <script>
+                        ping_app("{{app.id}}")
+                    </script>
+                    {% endfor %}
+
+                </table>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+</body>
+</html>
